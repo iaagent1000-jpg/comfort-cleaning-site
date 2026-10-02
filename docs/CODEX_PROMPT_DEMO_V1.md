@@ -57,3 +57,12 @@ Do not spend time on authentication, admin dashboards or advanced manager schedu
 
 SEO / AI DISCOVERY REQUIREMENT:
 Implement the Search / AI discovery strategy from MASTER_SPEC as part of this build. Important service information must remain crawlable and present as real text in the rendered pages, not only inside animated UI. Add route metadata, sitemap, robots, canonical handling, internal linking, and valid LocalBusiness/Organization JSON-LD using only verified business data. Do not keyword-stuff or generate thin location pages.
+
+
+CONTENT MANAGEMENT / FUTURE-PROOFING:
+- Do not hard-code editable business copy, prices, contacts or image paths throughout components.
+- Create a clear central content/config layer and service catalogue.
+- Structure components so we can replace the local content source with a CMS later without rewriting the UI.
+- Do NOT spend time building a custom admin/auth dashboard in this demo.
+- Codex is a development tool only; the deployed site must have no runtime dependency on Codex/OpenAI.
+- For current owned images used in the demo, prefer reliable local project assets over hotlinking the old site.
