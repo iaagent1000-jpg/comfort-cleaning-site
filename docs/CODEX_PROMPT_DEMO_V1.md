@@ -53,3 +53,7 @@ Then give a concise completion report containing:
 7. exact local run command
 
 Do not spend time on authentication, admin dashboards or advanced manager scheduling in this task.
+
+
+SEO / AI DISCOVERY REQUIREMENT:
+Implement the Search / AI discovery strategy from MASTER_SPEC as part of this build. Important service information must remain crawlable and present as real text in the rendered pages, not only inside animated UI. Add route metadata, sitemap, robots, canonical handling, internal linking, and valid LocalBusiness/Organization JSON-LD using only verified business data. Do not keyword-stuff or generate thin location pages.
