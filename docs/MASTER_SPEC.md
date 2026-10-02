@@ -369,3 +369,37 @@ Prepare the site so it can later be verified in Google Search Console, submitted
 
 ### Ranking expectations
 Never claim or imply that these changes guarantee first place in Google. The goal is to give the site the strongest technically sound and content-rich foundation possible while preserving the business's existing local search equity when migrated.
+
+## Content management / future-proof editing
+Codex must NOT become a runtime dependency of the website.
+The site must continue to work even if Codex/OpenAI is unavailable in the future.
+
+For Demo v1:
+- keep editable business content in a dedicated content/data layer
+- keep contact/business settings in one central config
+- keep service text/prices/options in one central typed catalogue
+- keep image references in one central content layer rather than scattering file paths through components
+- components must consume content through simple data interfaces so the content source can later be replaced without redesigning the UI
+
+After owner approval, the preferred next step is to add a simple CMS/admin experience so a non-developer can change:
+- service names/descriptions
+- prices
+- hero/section text
+- contact details
+- service area text
+- photos/images
+- featured services
+- active/inactive services
+without editing code.
+
+Do not build a full custom admin/auth system in Demo v1 because of the deadline. Instead prepare the architecture for a later CMS adapter. The final production choice can be a headless CMS or another simple editor, but website code remains in GitHub and hosting remains independent of Codex.
+
+### Image handling
+For Demo v1, approved/current Comfort Cleaning-owned images may be copied into the project and referenced locally for reliable performance. Avoid permanent hotlinking to the old site.
+Later, image fields should be CMS-managed so photos can be replaced from an admin panel without code changes.
+
+### Migration / domain plan
+The intended production migration is to KEEP the existing public domain `comfort-cleaning-ie.com` if the owner controls it.
+The new site will be hosted separately, tested on a demo URL, then the domain's DNS/web records will be pointed to the new hosting provider.
+Do not alter email-related DNS records (MX/TXT) during the website cutover.
+Preserve existing important URL paths where practical; where paths change, provide permanent 301 redirects to the closest relevant new page.
