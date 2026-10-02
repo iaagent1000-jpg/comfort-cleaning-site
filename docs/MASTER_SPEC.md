@@ -301,3 +301,71 @@ Adjust:
 - returning-customer flow
 - manager integration
 without redesigning the architecture.
+
+## Search / AI discovery strategy (2026)
+The site must be built for both classic Google Search and modern generative/AI search experiences. Do NOT use obsolete keyword-stuffing tactics and do NOT create thin pages only to target query variations.
+
+### Core principle
+Write for people first, but structure the site so search engines and AI systems can clearly understand:
+- who Comfort Cleaning is
+- where it operates
+- which services it provides
+- how each service works
+- what the current price/pricing model is
+- when a manager assessment is needed
+- how a customer can request service
+
+### Content requirements
+Each important service must have a substantial, useful, human-readable service page generated from the central data source. The page should answer real customer questions such as:
+- what the service includes
+- who it is for
+- how the process works
+- what affects price or duration
+- whether assessment is required
+- areas served
+- how to request an assessment
+
+Avoid generic filler. Prefer specific, local, operational information based on the real business.
+
+### Local relevance
+Naturally mention the real service area where relevant, including Gorey and County Wexford. Do not create dozens of near-duplicate town pages just to manipulate rankings. If additional area pages are created later, each must contain genuinely useful, unique local information.
+
+### Technical SEO
+Implement:
+- unique title and meta description for every important route
+- canonical URLs
+- sitemap.xml
+- robots.txt
+- Open Graph metadata
+- semantic headings and HTML
+- crawlable text content (do not hide important service copy only inside animations)
+- descriptive internal links between Home, Services, service detail pages, About, Contact and Book
+- descriptive image alt text where appropriate
+- fast mobile performance
+
+### Structured data
+Add valid JSON-LD where appropriate:
+- LocalBusiness / the most suitable available subtype
+- Organization properties where applicable
+- Service data where appropriate and supported
+- BreadcrumbList for service detail pages if useful
+
+Use only real verified business data. Do not fabricate ratings, reviews, opening hours, awards or addresses.
+
+### AI / generative search
+Do not add fake "AI optimization" hacks. No keyword stuffing, hidden text, mass-generated low-value pages, or special llms.txt dependency for Google Search.
+
+Make content easy to understand and quote by:
+- clear headings
+- direct answers
+- explicit service names
+- explicit locations
+- concise summaries followed by deeper detail
+- useful real-world process information
+- consistent business identity and contact data
+
+### Search Console readiness
+Prepare the site so it can later be verified in Google Search Console, submitted via sitemap and monitored for both normal Search and generative AI search performance.
+
+### Ranking expectations
+Never claim or imply that these changes guarantee first place in Google. The goal is to give the site the strongest technically sound and content-rich foundation possible while preserving the business's existing local search equity when migrated.
