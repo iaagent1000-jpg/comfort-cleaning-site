@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AssessmentWizard } from "@/components/AssessmentWizard";
+
+export const metadata: Metadata = { title: "Book a Cleaning Assessment", description: "Request a manager visit for professional cleaning in Gorey and County Wexford. Choose services, share property details and select a preferred assessment time.", alternates: { canonical: "/book" } };
+
+export default async function BookPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) { const { service } = await searchParams; return <><section className="bg-ink px-5 pb-28 pt-36 text-white sm:px-8"><div className="mx-auto max-w-4xl text-center"><p className="eyebrow !text-signal">New customer assessment</p><h1 className="mt-4 text-5xl font-semibold leading-[.98] tracking-[-.05em] sm:text-7xl">Start with a visit. Finish with a clear plan.</h1><p className="mx-auto mt-6 max-w-2xl leading-7 text-white/60">Tell us what you need and choose a preferred manager visit. Your cleaning time and final scope are confirmed after the assessment.</p></div></section><section className="relative z-10 mx-auto -mt-16 max-w-5xl px-4 pb-24 sm:px-8"><AssessmentWizard initialService={service}/><div className="mt-8 rounded-2xl border border-black/10 bg-white/50 p-5 text-center text-sm text-black/55"><strong className="text-ink">Already a customer?</strong> Returning-customer booking is coming next. For now, <Link className="font-semibold underline" href="/contact">contact the team directly</Link>.</div></section></>; }
