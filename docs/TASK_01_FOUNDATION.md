@@ -1,13 +1,32 @@
-# TASK 01 — Foundation + Homepage
+# TASK 01 — Meeting Demo (Foundation + Homepage + Services + Assessment Form)
 
-## Goal
-Create the technical foundation and a polished first version of the new Comfort Cleaning homepage.
+## Deadline goal
+Produce a polished demo that can be shown to the Comfort Cleaning owner tomorrow.
 
-Do NOT build the full booking automation in this task.
+This task is intentionally broader than a normal foundation task because the immediate goal is a convincing owner-facing prototype, not a finished production system.
 
-## Required work
+Do NOT build Google Sheets / Make / manager-panel integration yet. That comes after the owner approves the direction.
 
-### 1. Scaffold
+## Source of truth for this demo
+Use:
+1. AGENTS.md
+2. docs/PROJECT_BRIEF.md
+3. the existing website for business context: https://www.comfort-cleaning-ie.com/
+4. the business workflow defined in the project brief
+
+Do not invent awards, certifications, customer counts, testimonials or review scores.
+
+Where prices on the old site are inconsistent, do not guess. Prefer wording like "from", "price confirmed after assessment", or omit the disputed exact value from prominent UI.
+
+## What the owner should be able to see tomorrow
+The demo should answer these questions immediately:
+- Does the new site look clearly more modern than the current one?
+- Can a customer understand the main services quickly?
+- Can a new customer request a manager visit/assessment easily?
+- Does the site reflect the real first-cleaning process?
+- Does it look credible on an iPhone?
+
+## 1. Scaffold
 Create a production-ready Next.js project using:
 - Next.js App Router
 - TypeScript
@@ -16,68 +35,81 @@ Create a production-ready Next.js project using:
 
 Keep the repository root as the app root.
 
-### 2. Project structure
-Create a clean structure along these lines:
+## 2. Project structure
+Use a clean structure such as:
 - app/
 - components/
 - components/layout/
 - components/home/
+- components/forms/
 - data/
 - types/
 - public/
 
-### 3. Brand/design foundation
-Create reusable styling/tokens for the Comfort Cleaning identity:
+## 3. Visual direction
+Retain the recognisable Comfort Cleaning identity:
 - yellow
 - black
 - white / warm neutral backgrounds
 
-The result must feel modern, premium and clean, not like a default Next.js template.
+Modernise it substantially:
+- strong typography
+- generous spacing
+- clean service cards
+- professional CTA hierarchy
+- polished mobile navigation
+- restrained use of yellow
+- no template-like clutter
 
-### 4. Central service data model
-Create a typed service model and a single central services data file.
+This must look owner-presentable, not like an unfinished developer starter.
 
-For Task 01:
-- include representative service records/categories needed to render the homepage
-- do not duplicate pricing in components
-- if an exact current price is not verified, do not invent one
-- structure the model so actual pricing can be completed in Task 02
+## 4. Central services data
+Create a typed service model and one central services data file.
 
-Representative services/categories should cover the current business direction such as:
+Representative categories/services should include:
 - Regular Cleaning
 - Deep Cleaning
 - Move In / Move Out Cleaning
 - Post Construction Cleaning
-- Kitchen / Bathroom Cleaning
-- Upholstery / Carpet Cleaning
+- Kitchen Cleaning
+- Bathroom Cleaning
+- Upholstery Cleaning
+- Carpet Cleaning
 - Commercial Cleaning
 - Window Cleaning
 - Power Washing
 - Car Interior Cleaning
 - Handyman
 
-The homepage does not need to display every service.
+Do not duplicate prices in JSX.
 
-### 5. Header / navigation
+For the demo, only show exact prices when they are clearly reliable. Known examples from the current business material include:
+- Deep Kitchen Cleaning: €265
+- Deep Cleaning: €32/hour
+- Move In / Move Out: €33/hour
+- Post-Construction Cleaning: from €35/hour
+- Handyman: from €80 for 1.5 hours
+For any conflicting/unverified current price, prefer "From", "Quote", or no exact amount.
+
+## 5. Header / navigation
 Create:
-- brand/logo area
+- Comfort Cleaning brand area
 - Home
 - Services
 - About
 - Contact
 - primary CTA: "Book an Assessment"
 
-Mobile navigation must be polished and usable.
+Mobile menu must be polished.
 
-### 6. Homepage
-Build a strong mobile-first homepage with these sections:
+## 6. Homepage
+Build a strong mobile-first homepage.
 
-#### Hero
-Suggested message direction:
+### Hero
+Use a concise professional headline, for example:
 "Professional Cleaning, Done Properly."
-or another concise, credible variant.
 
-Supporting copy should communicate professional cleaning services in Gorey / Co. Wexford without making unverified claims.
+Supporting copy should explain that Comfort Cleaning serves homes and businesses around Gorey / Co. Wexford.
 
 Primary CTA:
 "Book an Assessment"
@@ -85,52 +117,113 @@ Primary CTA:
 Secondary CTA:
 "View Services"
 
-#### Trust/value strip
-Use factual/general value propositions only. Do not invent awards, certifications, customer counts or review scores.
+### Trust/value strip
+Only use credible general value points, e.g.:
+- Residential & Commercial
+- Professional Equipment
+- Local Service
+Do not invent statistics.
 
-#### Featured services
-Modern responsive cards sourced from the central services data.
+### Featured services
+Use 6–8 modern cards sourced from central data.
 
-#### How it works
-Make the new-customer process explicit:
+### How it works
+For NEW customers:
 1. Tell us what you need
-2. Book a manager assessment
-3. We assess the property and confirm the work
-4. Cleaning is scheduled
+2. Choose a preferred assessment time
+3. A manager visits the property
+4. The work/time is confirmed and cleaning is scheduled
 
-#### Why choose us
-Use restrained, credible copy. No fake statistics.
+Make clear that the manager determines the required cleaning time on site.
 
-#### Assessment CTA
-Explain that for a first cleaning, a manager can visit the property to understand the work and estimate the required time.
+### Why Comfort Cleaning
+Short, credible section based on professionalism, range of services and local service.
 
-CTA: "Book an Assessment"
+### Assessment CTA
+Explain the first-cleaning assessment clearly.
 
-#### Footer
-Include navigation/contact placeholders that are clearly structured for later replacement with verified business data.
+### Footer
+Use verified contact details from the existing site where safe:
+- Gorey, Co. Wexford
+- comfort.cleaning.ie@gmail.com
+- phone from the current website
+Keep layout clean and editable from one place.
 
-### 7. Routes
-Create placeholder-ready routes/pages so navigation does not dead-end:
-- /
-- /services
+## 7. Services page
+Create /services as a real demo page, not a placeholder.
+
+Requirements:
+- clear category grouping
+- responsive cards/list
+- services sourced from the central data file
+- price/price-type displayed consistently
+- no giant wall of checkboxes
+- CTA from each logical section to assessment form
+
+The purpose is to show the owner that all services can be organised much more clearly than on the existing site.
+
+## 8. Book Assessment page — IMPORTANT
+Create /book as a polished multi-step front-end assessment request demo for NEW customers.
+
+This is NOT a final booking/cleaning-duration calculator.
+
+### Step 1 — Service
+Let customer select one or more service categories.
+
+### Step 2 — Property/contact
+Fields:
+- Full name
+- Phone
+- Email
+- Full address
+- Eircode
+- Notes / what needs cleaning
+
+### Step 3 — Preferred manager visit
+Fields:
+- Preferred date
+- Preferred time window
+
+Use simple sensible time-window choices for the demo. Do not claim live availability yet.
+
+### Step 4 — Review
+Show a clean summary of the request.
+
+### Demo submission
+For this task, submission can be front-end only:
+- validate required fields
+- show a professional success/confirmation state
+- explicitly state that real Google Sheets/Make delivery will be connected in a later task
+
+Do NOT create fake backend success calls.
+
+Confirmation copy should communicate:
+"Request received. A manager will review your request and confirm the assessment visit."
+
+## 9. About and Contact
+Create visually complete lightweight pages:
 - /about
 - /contact
-- /book
 
-For Task 01, non-home pages can be simple but visually consistent shells. Do not build the full booking form yet.
+They should match the new design and not feel broken, but do not spend excessive time on them.
 
-### 8. Quality
-- responsive on mobile/desktop
-- semantic HTML
+## 10. Mobile-first quality
+Primary review width: iPhone/mobile.
+
+Requirements:
 - no horizontal overflow
-- accessible button/link states
+- good tap targets
+- readable typography
+- accessible labels
+- keyboard-friendly controls
+- visible focus states
+- semantic HTML
 - no lorem ipsum
 - no fake reviews
 - no secrets
 - sensible SEO metadata
-- clean TypeScript
 
-### 9. Verification
+## 11. Verification
 Run:
 - npm install
 - npm run lint
@@ -138,10 +231,21 @@ Run:
 
 Fix errors before finishing.
 
-## Completion report
-At the end, report:
-1. files/structure created
-2. design decisions
-3. what is intentionally deferred to Task 02
-4. lint/build status
-5. exact command to run the site locally
+## 12. Completion report
+At the end report:
+1. what was created
+2. routes available
+3. how service data is structured
+4. how the assessment flow works
+5. what is intentionally deferred (Google Sheets / Make / real scheduling)
+6. lint/build status
+7. exact local run command
+
+## Priority order if time is limited
+1. Homepage quality
+2. /book assessment experience
+3. /services
+4. mobile responsiveness
+5. About/Contact polish
+
+Do not spend time on advanced animation, authentication, dashboards or automation in this task.
