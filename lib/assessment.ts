@@ -5,7 +5,6 @@ export type AssessmentRequest = {
   name: string;
   phone: string;
   email: string;
-  address: string;
   eircode: string;
   selectedServices: string[];
   notes: string;
@@ -25,7 +24,7 @@ export function validateAssessment(input: unknown): { valid: true; data: Assessm
   if (!input || typeof input !== "object") return { valid: false, errors: ["Request body is required."] };
   const data = input as Partial<AssessmentRequest>;
   const errors: string[] = [];
-  const required: (keyof AssessmentRequest)[] = ["name", "phone", "email", "address", "eircode", "preferredAssessmentDate", "preferredAssessmentWindow"];
+  const required: (keyof AssessmentRequest)[] = ["name", "phone", "email", "eircode", "preferredAssessmentDate", "preferredAssessmentWindow"];
   required.forEach((key) => {
     if (typeof data[key] !== "string" || !(data[key] as string).trim()) errors.push(`${key} is required.`);
   });
