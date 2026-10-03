@@ -40,7 +40,7 @@ export default function ContactPage() {
                   Email
                 </p>
                 <a
-                  className="mt-2 block break-all text-xl font-semibold"
+                  className="mt-2 block break-words text-base font-semibold sm:text-xl"
                   href={`mailto:${business.email}`}
                 >
                   {business.email}

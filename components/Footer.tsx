@@ -26,8 +26,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
           <div className="mb-5 flex items-center gap-3">
-            <span className="relative h-11 w-11 overflow-hidden rounded-full border border-signal/60 bg-signal">
-              <Image src={images.logo} alt="" fill sizes="44px" className="object-cover" />
+            <span className="relative h-24 w-36 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black">
+              <Image src={images.logo} alt="Comfort Cleaning & Store official logo" fill sizes="144px" className="object-contain" />
             </span>
             <span className="text-xl font-semibold">{business.name}</span>
           </div>

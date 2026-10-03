@@ -15,7 +15,7 @@ export const business = {
 
 export const images = {
   hero: "/images/hero-cleaning.png",
-  logo: "/images/brand/comfort-cleaning-logo.webp",
+  logo: "/images/brand/comfort-cleaning-official-logo.webp",
 } as const;
 
 export type SocialLink = {

@@ -13,8 +13,8 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 px-2.5 pt-2.5 sm:px-6 sm:pt-3">
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/15 bg-ink/90 px-3 py-2.5 text-white shadow-2xl shadow-black/20 backdrop-blur-xl sm:px-6 sm:py-3">
         <Link href="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3" onClick={() => setOpen(false)} aria-label="Comfort Cleaning home">
-          <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-signal/60 bg-signal shadow-sm transition-transform group-hover:rotate-3">
-            <Image src={images.logo} alt="" fill sizes="40px" className="object-cover" priority />
+          <span className="relative h-10 w-[3.75rem] shrink-0 overflow-hidden rounded-lg border border-white/15 bg-black shadow-sm">
+            <Image src={images.logo} alt="" fill sizes="60px" className="object-contain" priority />
           </span>
           <span className="truncate text-sm font-semibold tracking-tight sm:text-base">Comfort Cleaning</span>
         </Link>
