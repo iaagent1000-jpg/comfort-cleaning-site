@@ -403,3 +403,40 @@ The intended production migration is to KEEP the existing public domain `comfort
 The new site will be hosted separately, tested on a demo URL, then the domain's DNS/web records will be pointed to the new hosting provider.
 Do not alter email-related DNS records (MX/TXT) during the website cutover.
 Preserve existing important URL paths where practical; where paths change, provide permanent 301 redirects to the closest relevant new page.
+
+## Service imagery and social links
+### Service imagery
+The demo must not reuse one generic image for every service.
+Each major service/category should have a relevant visual that clearly communicates the service at a glance.
+For the first demo, prefer Comfort Cleaning-owned images already used on the existing website, copied into this repository as local assets where rights/ownership are appropriate.
+Store service image paths centrally in the service data layer so an image can later be replaced from a CMS without editing components.
+At minimum provide distinct visuals for:
+- Regular Cleaning
+- Deep Cleaning
+- Move In / Move Out
+- Post-Construction Cleaning
+- Commercial / Office Cleaning
+- Kitchen Cleaning
+- Bathroom Cleaning
+- Upholstery / Sofa Cleaning
+- Carpet / Rug Cleaning
+- Mattress Cleaning
+- Car Interior / Valeting
+- Window Cleaning
+- Power Washing
+- Handyman
+- Ironing
+
+Use responsive Next/Image rendering, meaningful alt text and sensible image crops. Avoid fragile hotlinks to the old website.
+
+### Social links
+Create a central socialLinks config in the content layer, not hard-coded URLs in components.
+Support at least:
+- Facebook
+- Instagram
+- TikTok
+- WhatsApp
+- Messenger (optional if a verified URL is available)
+
+Render social links in the footer/contact area and, where appropriate on mobile, provide restrained quick-contact actions (phone/WhatsApp) without recreating the old site's oversized floating stack.
+Do not invent social URLs. If a verified URL is not yet supplied, keep that network disabled/hidden until configured.
