@@ -99,7 +99,7 @@ export default async function ServicePage({
             </span>
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[.96] tracking-[-.05em] sm:text-7xl">
+                <h1 className="max-w-4xl break-words text-4xl font-semibold leading-[.96] tracking-[-.05em] sm:text-7xl">
                   {service.name}
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
@@ -183,7 +183,7 @@ export default async function ServicePage({
               <div className="mt-10 grid gap-3 md:grid-cols-2">
                 {service.options.map((option) => (
                   <div
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-black/10 p-5"
+                    className="flex flex-col items-start justify-between gap-2 rounded-2xl border border-black/10 p-5 sm:flex-row sm:items-center sm:gap-4"
                     key={option.name}
                   >
                     <span className="font-medium">{option.name}</span>

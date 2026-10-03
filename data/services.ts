@@ -35,7 +35,7 @@ export type Service = {
 const serviceVisuals = {
   regular: { image: "/images/services/regular-cleaning.webp", imageAlt: "Professional cleaner carrying out regular home cleaning" },
   deep: { image: "/images/services/deep-cleaning.webp", imageAlt: "Detailed deep cleaning in a bright home interior" },
-  express: { image: "/images/services/express-cleaning.webp", imageAlt: "Focused express cleaning of a modern living space" },
+  express: { image: "/images/services/express-cleaning-female.webp", imageAlt: "Comfort Cleaning team member refreshing a modern bedroom", imagePosition: "center 34%" },
   move: { image: "/images/services/move-cleaning.webp", imageAlt: "Cleaner preparing an empty property for moving day" },
   construction: { image: "/images/services/post-construction.webp", imageAlt: "Post-construction cleaner removing building dust" },
   school: { image: "/images/services/school-accommodation.webp", imageAlt: "Professional cleaning in a school and accommodation setting" },

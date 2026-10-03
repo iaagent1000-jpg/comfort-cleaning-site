@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { business, enabledSocialLinks, navigation } from "@/data/content";
+import { business, enabledSocialLinks, images, navigation } from "@/data/content";
 
 export function Footer() {
   return (
@@ -25,8 +26,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
           <div className="mb-5 flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-signal font-black text-ink">
-              CC
+            <span className="relative h-11 w-11 overflow-hidden rounded-full border border-signal/60 bg-signal">
+              <Image src={images.logo} alt="" fill sizes="44px" className="object-cover" />
             </span>
             <span className="text-xl font-semibold">{business.name}</span>
           </div>

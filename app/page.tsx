@@ -14,43 +14,57 @@ export default function HomePage() {
     .slice(0, 4);
   return (
     <>
-      <section className="noise relative min-h-[92svh] overflow-hidden bg-ink text-white">
+      <section className="noise relative overflow-hidden bg-ink text-white md:min-h-[92svh]">
         <Image
-          className="hero-image absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-65"
+          className="hero-image absolute inset-0 hidden h-full w-full object-cover object-[62%_center] opacity-60 md:block"
           src={images.hero}
           alt="Professional cleaner polishing a modern home interior"
           fill
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/80 to-ink/10 md:block" />
         <div className="orb absolute -left-20 top-28 h-72 w-72 rounded-full bg-signal/20 blur-3xl" />
-        <div className="relative mx-auto flex min-h-[92svh] max-w-7xl items-end px-5 pb-16 pt-36 sm:px-8 md:items-center md:pb-0">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[.24em] text-signal">
+        <div className="relative mx-auto max-w-7xl px-5 pb-0 pt-28 sm:px-8 md:flex md:min-h-[92svh] md:items-center md:pb-0 md:pt-28">
+          <div className="max-w-3xl md:pb-12">
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[.2em] text-signal sm:mb-5 sm:text-xs sm:tracking-[.24em]">
               {homeContent.eyebrow}
             </p>
-            <h1 className="text-5xl font-semibold leading-[.94] tracking-[-.055em] sm:text-7xl lg:text-[6.5rem]">
+            <h1 className="text-[3rem] font-semibold leading-[.94] tracking-[-.055em] sm:text-7xl lg:text-[6.5rem]">
               {homeContent.title}
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-white/72 sm:text-lg">
+            <p className="mt-5 max-w-xl text-[15px] leading-6 text-white/75 sm:mt-6 sm:text-lg sm:leading-7">
               {homeContent.intro}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:flex sm:flex-row">
               <Link className="button button-primary" href="/book">
-                Book an Assessment <span>↗</span>
+                Book a visit <span aria-hidden>↗</span>
               </Link>
               <Link
                 className="button border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20"
                 href="/services"
               >
-                Explore Services
+                View services
               </Link>
             </div>
-            <p className="mt-7 text-sm text-white/50">
-              First visit? We assess your property before confirming cleaning
-              time.
+            <p className="mt-5 text-xs leading-5 text-white/55 sm:mt-7 sm:text-sm">
+              First visit? A manager assesses your property before confirming
+              the cleaning plan.
             </p>
+            <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-t-[1.75rem] border border-b-0 border-white/15 md:hidden">
+              <Image
+                src={images.hero}
+                alt="Professional female cleaner caring for a modern home"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-[68%_center]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 rounded-full bg-signal px-3 py-2 text-[10px] font-bold uppercase tracking-[.12em] text-ink shadow-lg">
+                Local care · Gorey + 30 km
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -85,14 +99,42 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4">
             {residential.map((service, index) => (
-              <Reveal key={service.id} delay={index * 80}>
+              <Reveal key={service.id} delay={index * 80} className="h-full">
                 <ServiceCard service={service} index={index} />
               </Reveal>
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="px-5 pb-20 sm:px-8 md:pb-28">
+        <Reveal className="section-inner overflow-hidden rounded-[2rem] bg-signal shadow-xl">
+          <div className="grid md:grid-cols-[1.15fr_.85fr]">
+            <div className="p-6 sm:p-10 lg:p-12">
+              <p className="eyebrow">Need a clear quote?</p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-.035em] sm:text-5xl">
+                Request a manager visit in a few simple steps.
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-black/65 sm:text-base">
+                Choose the services, share your Eircode and preferred time, and
+                we’ll contact you to confirm the assessment.
+              </p>
+              <Link href="/book" className="button button-dark mt-7 w-full sm:w-auto">
+                Request a visit <span aria-hidden>→</span>
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 border-t border-black/15 bg-ink p-5 text-white md:grid-cols-1 md:border-l md:border-t-0 sm:p-8">
+              {["Choose services", "Add your Eircode", "Pick a visit time"].map((item, index) => (
+                <div key={item} className="flex min-w-0 flex-col justify-between gap-4 border-l border-white/15 px-2 py-2 text-center first:border-l-0 md:flex-row md:items-center md:border-l-0 md:border-t md:px-0 md:py-5 md:text-left md:first:border-t-0">
+                  <span className="text-xs font-bold text-signal">0{index + 1}</span>
+                  <span className="text-xs font-semibold leading-4 sm:text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       <section className="section bg-ink text-white">

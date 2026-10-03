@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 
-export const viewport: Viewport = { themeColor: "#11110f", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#0b352b", width: "device-width", initialScale: 1 };
 export const metadata: Metadata = {
   metadataBase: new URL(business.baseUrl),
   title: { default: "Comfort Cleaning | Professional Cleaning in Gorey", template: "%s | Comfort Cleaning" },

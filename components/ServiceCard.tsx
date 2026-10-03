@@ -15,7 +15,7 @@ export function ServiceCard({
       className="service-card group"
       style={{ "--card-index": index } as React.CSSProperties}
     >
-      <div className="relative -mx-6 -mt-6 mb-6 aspect-[4/3] overflow-hidden bg-black/5">
+      <div className="relative -mx-5 -mt-5 mb-5 aspect-[4/3] overflow-hidden bg-black/5 sm:-mx-6 sm:-mt-6 sm:mb-6">
         <Image
           src={service.image}
           alt={service.imageAlt}
@@ -28,19 +28,21 @@ export function ServiceCard({
         <span className="chip absolute left-4 top-4 !bg-white/90 !text-ink backdrop-blur">
           {service.category}
         </span>
-        <span className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-ink text-white transition-transform duration-300 group-hover:rotate-45 group-hover:bg-signal group-hover:text-ink">
-          ↗
-        </span>
       </div>
       <h3 className="text-2xl font-semibold tracking-tight">{service.name}</h3>
-      <p className="mt-3 min-h-16 text-sm leading-6 text-black/60">
+      <p className="mt-3 text-sm leading-6 text-black/60 lg:min-h-[4.5rem]">
         {service.shortDescription}
       </p>
-      <div className="mt-7 flex items-end justify-between border-t border-black/10 pt-5">
-        <span className="text-xs font-semibold uppercase tracking-[.16em] text-black/45">
-          Current price
+      <div className="mt-auto pt-7">
+        <div className="flex items-end justify-between gap-3 border-t border-black/10 pt-5">
+          <span className="text-xs font-semibold uppercase tracking-[.14em] text-black/45">
+            Current price
+          </span>
+          <span className="text-right text-sm font-semibold sm:text-base">{formatPrice(service)}</span>
+        </div>
+        <span className="mt-5 flex min-h-11 w-full items-center justify-between rounded-full bg-ink px-5 text-sm font-semibold text-white transition group-hover:bg-signal group-hover:text-ink">
+          View service <span aria-hidden>→</span>
         </span>
-        <span className="text-right font-semibold">{formatPrice(service)}</span>
       </div>
     </Link>
   );
