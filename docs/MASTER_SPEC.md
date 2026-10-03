@@ -78,18 +78,17 @@ Flow:
 2. Enter name
 3. Enter phone
 4. Enter email
-5. Enter full address
-6. Enter Eircode
-7. Add notes
-8. Optional photo upload (UI and data structure prepared)
-9. Choose preferred manager visit date
-10. Choose preferred time window
-11. Review request
-12. Submit
-13. Manager receives structured request
-14. Manager visits property
-15. Manager determines required cleaning time on site
-16. Cleaning is confirmed/scheduled
+5. Enter Eircode
+6. Add notes
+7. Optional photo upload (UI and data structure prepared)
+8. Choose preferred manager visit date
+9. Choose preferred time window
+10. Review request
+11. Submit
+12. Manager receives structured request
+13. Manager visits property
+14. Manager determines required cleaning time on site
+15. Cleaning is confirmed/scheduled
 
 Customer-facing wording must explain that the first visit lets the manager assess the work and confirm the required cleaning time.
 
@@ -241,7 +240,6 @@ Payload should include at least:
 - name
 - phone
 - email
-- address
 - eircode
 - selectedServices[]
 - notes
@@ -286,7 +284,7 @@ The owner can:
 4. open service detail content
 5. start a new-customer assessment request
 6. select services
-7. enter address/Eircode/contact info
+7. enter Eircode/contact info
 8. choose preferred manager visit date/time
 9. review and submit
 10. the request reaches the real configured backend/Sheet once integration credentials are supplied
@@ -440,3 +438,7 @@ Support at least:
 
 Render social links in the footer/contact area and, where appropriate on mobile, provide restrained quick-contact actions (phone/WhatsApp) without recreating the old site's oversized floating stack.
 Do not invent social URLs. If a verified URL is not yet supplied, keep that network disabled/hidden until configured.
+
+
+### Assessment location field rule
+For Demo v1 and the intended production flow, do NOT ask for a separate full street address in the new-customer assessment form. Eircode is sufficient for location capture at this stage. Keep the form shorter and easier to complete on mobile. If the owner later requests a full address field, it can be reintroduced through the central form schema.
