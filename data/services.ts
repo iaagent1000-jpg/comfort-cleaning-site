@@ -26,13 +26,38 @@ export type Service = {
   options?: ServiceOption[];
   featured: boolean;
   image: string;
+  imageAlt: string;
+  imagePosition?: string;
   active: boolean;
   assessmentRequired: boolean;
 };
 
-const image = "/images/hero-cleaning.png";
+const serviceVisuals = {
+  regular: { image: "/images/services/regular-cleaning.webp", imageAlt: "Professional cleaner carrying out regular home cleaning" },
+  deep: { image: "/images/services/deep-cleaning.webp", imageAlt: "Detailed deep cleaning in a bright home interior" },
+  express: { image: "/images/services/express-cleaning.webp", imageAlt: "Focused express cleaning of a modern living space" },
+  move: { image: "/images/services/move-cleaning.webp", imageAlt: "Cleaner preparing an empty property for moving day" },
+  construction: { image: "/images/services/post-construction.webp", imageAlt: "Post-construction cleaner removing building dust" },
+  school: { image: "/images/services/school-accommodation.webp", imageAlt: "Professional cleaning in a school and accommodation setting" },
+  restaurant: { image: "/images/services/restaurant-kitchen.webp", imageAlt: "Commercial restaurant kitchen being professionally cleaned" },
+  offices: { image: "/images/services/offices-cleaning.webp", imageAlt: "Professional cleaner working in a modern office" },
+  nursing: { image: "/images/services/nursing-home.webp", imageAlt: "Careful professional cleaning in a nursing home" },
+  warehouse: { image: "/images/services/warehouse-cleaning.webp", imageAlt: "Industrial warehouse floor cleaning" },
+  kitchen: { image: "/images/services/deep-kitchen.webp", imageAlt: "Detailed deep cleaning of a domestic kitchen" },
+  bathroom: { image: "/images/services/bathroom-cleaning.webp", imageAlt: "Sparkling bathroom after a professional deep clean" },
+  car: { image: "/images/services/car-interior.webp", imageAlt: "Professional deep cleaning of a car interior" },
+  sofa: { image: "/images/services/sofa-upholstery.webp", imageAlt: "Professional upholstery cleaning on a fabric sofa" },
+  mattress: { image: "/images/services/mattress-cleaning.webp", imageAlt: "Professional mattress cleaning with extraction equipment" },
+  carpet: { image: "/images/services/carpet-cleaning.webp", imageAlt: "Professional carpet cleaning in a home" },
+  power: { image: "/images/services/power-washing.webp", imageAlt: "Power washing an outdoor paved surface" },
+  windows: { image: "/images/services/window-cleaning.webp", imageAlt: "Professional cleaner washing a large window" },
+  handyman: { image: "/images/services/handyman.webp", imageAlt: "Handyman completing a household maintenance task" },
+  ironing: { image: "/images/services/ironing.webp", imageAlt: "Fresh clothes being professionally ironed" },
+} as const;
 
-export const services: Service[] = [
+const image = undefined;
+
+const baseServices: (Omit<Service, "image" | "imageAlt" | "imagePosition"> & { image?: undefined })[] = [
   { id: "regular", slug: "regular-cleaning", name: "Regular Cleaning", category: "House cleaning", shortDescription: "Reliable routine care that keeps your home feeling fresh and manageable.", fullDescription: "Regular cleaning is designed for occupied homes that need dependable, repeat care. After the first assessment, we agree the priority rooms, practical routine and cleaning time with you.", includes: ["Routine surface and floor care", "Kitchen and bathroom upkeep", "A plan shaped around your home"], pricingType: "hourly", price: 28.5, priceUnit: "hour", minimumHours: 3, featured: true, image, active: true, assessmentRequired: true },
   { id: "deep", slug: "deep-cleaning", name: "Deep Cleaning", category: "House cleaning", shortDescription: "Detailed top-to-bottom attention for spaces that need a reset.", fullDescription: "A deeper clean for homes needing more detailed attention than a routine visit. The manager assesses condition and priorities before confirming the cleaning hours required.", includes: ["Detailed room-by-room assessment", "High-touch and overlooked areas", "Agreed priority plan before work begins"], pricingType: "hourly", price: 32, priceUnit: "hour", featured: true, image, active: true, assessmentRequired: true },
   { id: "express", slug: "express-cleaning", name: "Express Cleaning", category: "House cleaning", shortDescription: "A focused fixed-price refresh for a clearly defined scope.", fullDescription: "Express Cleaning is a focused service for customers who need a practical refresh. We confirm suitability and scope before the clean so expectations remain clear.", includes: ["Focused cleaning plan", "Clear fixed-price baseline", "Suitability confirmed before booking"], pricingType: "fixed", price: 140, featured: true, image, active: true, assessmentRequired: true },
@@ -54,6 +79,11 @@ export const services: Service[] = [
   { id: "handyman", slug: "handyman", name: "Handyman", category: "Outdoor & other", shortDescription: "Practical household help for smaller maintenance tasks.", fullDescription: "A flexible handyman service for agreed household tasks, starting from a 1.5-hour visit.", includes: ["Task review", "Agreed small maintenance jobs", "Clear time baseline"], pricingType: "fixed", price: 80, priceUnit: "1.5 hours", featured: false, image, active: true, assessmentRequired: true },
   { id: "ironing", slug: "ironing", name: "Ironing", category: "Outdoor & other", shortDescription: "Convenient ironing support priced from a per-item baseline.", fullDescription: "Ironing is priced from €1 per item, with the final amount depending on garment type and quantity.", includes: ["Garment quantity review", "Per-item baseline", "Final scope confirmed before service"], pricingType: "fixed", price: 1, priceUnit: "item", featured: false, image, active: true, assessmentRequired: false },
 ];
+
+export const services: Service[] = baseServices.map((service) => ({
+  ...service,
+  ...serviceVisuals[service.id as keyof typeof serviceVisuals],
+}));
 
 export const activeServices = services.filter((service) => service.active);
 export const featuredServices = activeServices.filter((service) => service.featured);
